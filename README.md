@@ -4,7 +4,7 @@
 </div>
 
 This repository is the official Pytorch implementation for paper **Cyclic Pseudo-Label Generation and Refinement for Weakly Supervised Referring Expression Grounding**.
-This work has been accepted by [TCSVT 2025](https://ieeexplore.ieee.org/document/11296906)
+This work has been accepted by [TCSVT 2025](https://ieeexplore.ieee.org/document/11296906).
 
 
 ## Introduction
@@ -18,7 +18,7 @@ Using these expressions that lack Reference-Discrimination to train REG models t
 
 We propose a CPGR method for WREG, alleviating the impact of missing region annotations on the fine-tuning training. We cycle through the linear process of Generation-Refinement-Grounding to progressively enhance both the quality of pseudo-labels and the grounding performance of the model.
 
-In the first Generation module, we introduce the [BLIP-2](https://github.com/salesforce/LAVIS/tree/main/projects/blip2) as the VLP model and fine-tune two components in BLIP-2 for REG task adaptation. First, we combine the Coordinate Embedding with LoRA to fine-tune its Q-Former module and combine prefix prompt with LoRA to fine-tune the LLM to generate REG-style text descriptions with Region-Centrality. 
+In the first Generation module, we introduce the [BLIP-2](https://github.com/salesforce/LAVIS/tree/main/projects/blip2) as the VLP model and fine-tune two components in BLIP-2 for REG task adaptation. First, we combine the Coordinate Embedding and prefix prompt with LoRA to generate REG-style text descriptions with Region-Centrality. 
 In the second Refinement module, we ensure the Reference-Discrimination of pseudo-labels while enhancing their reliability with expressions from the dataset. 
 The refined pseudo-labels are employed as fine-tuning data for the Generation module in the next cycle. They are also employed as training data for the third Grounding module in the current cycle. The grounding model is then employed for extracting cross-modal token attention for the Refinement module in the next cycle.
 The process of Generation-Refinement-Grounding is executed cyclically to construct a progressive training system for WREG.
